@@ -19,7 +19,7 @@ public class DamkaBoard
                 // Even results of i and j will be converted to *
                 if ((i + j) % 2 == 0) 
 				{
-                    System.out.print("* ");
+                    System.out.print("  *");
                 } 
 				// Odd results of i and j will be converted to empty/white cell
 				else 
