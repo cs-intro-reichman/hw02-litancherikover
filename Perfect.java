@@ -5,32 +5,33 @@ public class Perfect
 {
 	public static void main (String[] args) 
 	{
-		int perfect_number = Integer.parseInt(args[0]);
+		int Perfect_number = Integer.parseInt(args[0]);
 		int Total = 0;
+		String DivisorString = "";
 		//Number's proper divisors sum should be equal to the number
-		for ( int i = 1 ; i < perfect_number ; i ++) 
+		for ( int i = 1 ; i < Perfect_number ; i ++) 
 		{
-			if (perfect_number % i == 0) 
+			if (Perfect_number % i == 0) 
 			{
 				Total = Total + i;
 			}
 		}
 			//The sum of proper divisors should be equal to the number
-			if (perfect_number == Total) 
+			if (Perfect_number == Total) 
 			{
-				System.out.print(perfect_number + " is a perfect number since " + perfect_number + " = 1");
-				for ( int j = 2 ; j < perfect_number ; j ++) 
+				for (int j = 1; j < Perfect_number; j++)
 				{
-
-			         if (perfect_number % j == 0) 
-					 {
-			         	System.out.print(" + " + j);
-			         }
-			 	}
+						if (DivisorString!="")
+						{
+							DivisorString += " + ";
+						}
+						DivisorString += j;
+				}
+				System.out.print(Perfect_number + " is a perfect number since " + Perfect_number + " = " + DivisorString);
 			} 
 			 else 
 			{
-			 	System.out.println(perfect_number + " is not a perfect number");
+			 	System.out.println(Perfect_number + " is not a perfect number");
 			}
 	}
 }
