@@ -18,10 +18,19 @@ public class Perfect
 			//The sum of proper divisors should be equal to the number
 			if (perfect_number == Total) 
 			{
-				System.out.print(perfect_number + " is a perfect number");
-			 } else 
-			 {
+				System.out.print(perfect_number + " is a perfect number since " + perfect_number + " = 1");
+				for ( int j = 2 ; j < perfect_number ; j ++) 
+				{
+
+			         if (perfect_number % j == 0) 
+					 {
+			         	System.out.print(" + " + j);
+			         }
+			 	}
+			} 
+			 else 
+			{
 			 	System.out.println(perfect_number + " is not a perfect number");
-			 }
+			}
 	}
 }
