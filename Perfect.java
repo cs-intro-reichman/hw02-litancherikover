@@ -23,12 +23,13 @@ public class Perfect
 				{
 					// Check if j is a divisor
 					if (Perfect_number % j == 0) 
-					{  
+					{
+						//The string is not empty  
 						if (DivisorString.length() > 0) 
 						{
-							DivisorString += " + ";
+							DivisorString = DivisorString + " + ";
 						}
-						DivisorString += j;
+						DivisorString =DivisorString + j;
 					}
 				}
 				System.out.print(Perfect_number + " is a perfect number since " + Perfect_number + " = " + DivisorString);

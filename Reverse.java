@@ -7,9 +7,9 @@ public class Reverse
 	public static void main (String[] args)
 	{
 		String word=args[0];
-		for(int i=word.length()-1;i>=0;i--)
+		for(int n=word.length()-1;n>=0;n--)
 		{
-			System.out.print(word.charAt(i));
+			System.out.print(word.charAt(n));
 		}
 		System.out.println();
 		//Printing the middle of the given word
