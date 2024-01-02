@@ -41,7 +41,7 @@ public class OneOfEachStats
 				//Count the number of children in this family
                 NumOfChildrenThisFamily++;
             }
-			//here we accumulate thre number of total children
+			//here we accumulate the number of total children
             TotalNumOfChildren += NumOfChildrenThisFamily; 
             if (NumOfChildrenThisFamily == 2)
             {
