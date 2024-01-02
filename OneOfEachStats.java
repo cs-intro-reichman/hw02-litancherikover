@@ -21,8 +21,8 @@ public class OneOfEachStats
         boolean Girl = false;
 		int NumOfGirls=0;
         int NumOfChildren = 0;
-		int avg=0;
-		int TwoChildren=0,ThreeChildren=0,FourChildren=0;
+		double avg=0;
+		int TwoChildren=0,ThreeChildren=0,FourOrMoreChildren=0;
 		for (int i=0;i<=T;i++)
 		{
 			while (Boy==false || Girl==false)
@@ -49,29 +49,29 @@ public class OneOfEachStats
 			}
 			else
 			{
-				FourChildren++;
+				FourOrMoreChildren++;
 			}
 			NumOfBoys=0;
 			NumOfGirls=0;
 			Boy=false;
 			Girl=false;
 		}
-		avg = NumOfChildren / T;
-        System.out.println("Average: "+ avg + " children to get at least one of each gender.");
-		System.out.println("Number of families with 2 children: " + TwoChildren);
+		avg = (double) NumOfChildren / T;
+        System.out.println("Average: " + avg + " children to get at least one of each gender.");
+        System.out.println("Number of families with 2 children: " + TwoChildren);
         System.out.println("Number of families with 3 children: " + ThreeChildren);
-        System.out.println("Number of families with 4 or more children: " + FourChildren);
-		if (TwoChildren>ThreeChildren && TwoChildren>FourChildren) 
+        System.out.println("Number of families with 4 or more children: " + FourOrMoreChildren);
+		if (TwoChildren >= ThreeChildren && TwoChildren >= FourOrMoreChildren) 
 		{
-            System.out.println("The most common number of children is 2.");  
-        }
-        else if (ThreeChildren>TwoChildren && ThreeChildren>FourChildren)
+            System.out.println("The most common number of children is 2.");
+        } 
+		else if (ThreeChildren >= TwoChildren && ThreeChildren >= FourOrMoreChildren) 
 		{
-            System.out.println("The most common number of children is 3."); 
-        }
-        else
+            System.out.println("The most common number of children is 3.");
+        } 
+		else 
 		{
-            System.out.println("The most common number of children is 4.");
+            System.out.println("The most common number of children is 4 or more.");
         }
 
 	}
