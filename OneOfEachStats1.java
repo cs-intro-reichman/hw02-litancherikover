@@ -16,7 +16,7 @@ public class OneOfEachStats1
         int NumOfChildren = 0;
 		double avg=0;
 		int TwoChildren=0,ThreeChildren=0,FourOrMoreChildren=0;
-		for (int i=0;i<=T;i++)
+		for (int i=0;i<T;i++)
 		{
 			while (Boy==false || Girl==false)
 				{

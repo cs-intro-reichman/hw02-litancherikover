@@ -9,71 +9,70 @@ import java.util.Random;
  */
 public class OneOfEachStats 
 {
-	public static void main (String[] args) 
-	{
-		// Gets the two command-line arguments
-		int T = Integer.parseInt(args[0]);
-		int seed = Integer.parseInt(args[1]);
-		// Initailizes a random numbers generator with the given seed value
+    public static void main (String[] args) 
+    {
+        // Gets the two command-line arguments
+        int T = Integer.parseInt(args[0]);
+        int seed = Integer.parseInt(args[1]);
+        // Initializes a random numbers generator with the given seed value
         Random generator = new Random(seed);
-		boolean Boy = false;
-		int NumOfBoys=0;
-        boolean Girl = false;
-		int NumOfGirls=0;
-        int NumOfChildren = 0;
-		double avg=0;
-		int TwoChildren=0,ThreeChildren=0,FourOrMoreChildren=0;
-		for (int i=0;i<=T;i++)
-		{
-			while (Boy==false || Girl==false)
-				{
-					if (generator.nextDouble() <= 0.5)
-					{
-						Boy = true;
-						NumOfBoys++;
-					} 
-					else 
-					{
-						Girl = true;
-						NumOfGirls++;
-					}
-					NumOfChildren++;
-        		}
-			if(NumOfBoys+NumOfGirls==2)
-			{
-				TwoChildren++;
-			}
-			else if(NumOfBoys+NumOfGirls==3)
-			{
-				ThreeChildren++;
-			}
-			else
-			{
-				FourOrMoreChildren++;
-			}
-			NumOfBoys=0;
-			NumOfGirls=0;
-			Boy=false;
-			Girl=false;
-		}
-		avg = (double) NumOfChildren / T;
+        boolean Boy=false;
+		boolean Girl=false;
+		// Initialzing the variable which accumulates total number of children across all families
+        int TotalNumOfChildren = 0; 
+		// Number of children for this family
+		int NumOfChildrenThisFamily=0;
+        int TwoChildren = 0, ThreeChildren = 0, FourOrMoreChildren = 0;
+        for (int i = 0; i < T; i++) 
+        {
+            Boy = false;
+            Girl = false;
+            NumOfChildrenThisFamily = 0; 
+            while (Boy==false || Girl==false)
+            {
+                if (generator.nextDouble() <= 0.5)
+                {
+                    Boy = true;
+                } 
+                else 
+                {
+                    Girl = true;
+                }
+				//Count the number of children in this family
+                NumOfChildrenThisFamily++;
+            }
+			//here we accumulate thre number of total children
+            TotalNumOfChildren += NumOfChildrenThisFamily; 
+            if (NumOfChildrenThisFamily == 2)
+            {
+                TwoChildren++;
+            }
+            else if (NumOfChildrenThisFamily == 3)
+            {
+                ThreeChildren++;
+            }
+            else if (NumOfChildrenThisFamily >= 4)
+            {
+                FourOrMoreChildren++;
+            }
+        }
+		// Calculates the average
+        double avg = (double) TotalNumOfChildren / T; 
         System.out.println("Average: " + avg + " children to get at least one of each gender.");
         System.out.println("Number of families with 2 children: " + TwoChildren);
         System.out.println("Number of families with 3 children: " + ThreeChildren);
         System.out.println("Number of families with 4 or more children: " + FourOrMoreChildren);
-		if (TwoChildren >= ThreeChildren && TwoChildren >= FourOrMoreChildren) 
-		{
+        if (TwoChildren >= ThreeChildren && TwoChildren >= FourOrMoreChildren) 
+        {
             System.out.println("The most common number of children is 2.");
         } 
-		else if (ThreeChildren >= TwoChildren && ThreeChildren >= FourOrMoreChildren) 
-		{
+        else if (ThreeChildren >= TwoChildren && ThreeChildren >= FourOrMoreChildren) 
+        {
             System.out.println("The most common number of children is 3.");
         } 
-		else 
-		{
+        else 
+        {
             System.out.println("The most common number of children is 4 or more.");
         }
-
-	}
+    }
 }
-		 
